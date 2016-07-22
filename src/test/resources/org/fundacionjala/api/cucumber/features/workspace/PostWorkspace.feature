@@ -10,3 +10,17 @@ Feature: delete Workspace
       | name | workspaceTest |
     Then I expect the status code 200
     And The name field should be equal to workspaceTest
+
+  @DeleteWorkspace
+  Scenario: Create Workspaces
+    Given I send a POST request to /my/workspaces
+      | name | workspaceTest |
+    Then I expect the status code 200
+    And The name field should be lees than 25 length
+
+
+  name string[25] in the request body.
+  —  The name of the workspace.
+
+  project_ids List[int] in the request body.
+  —  Array of projects contained in the workspace.
